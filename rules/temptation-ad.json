@@ -1,0 +1,48 @@
+[
+  {
+    "id": 1,
+    "condition": {
+      "urlFilter": "*://*.ad.nl",
+      "resourceTypes": ["main_frame"]
+    },
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        { "header": "cookie", "operation": "remove" },
+        { "header": "user-agent", "operation": "set", "value": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Googlebot/2.1; +http://www.google.com/bot.html) Chrome/142.0.0.0 Safari/537.36"}
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "condition": {
+      "urlFilter": "*://temptation.ad.nl/*"
+    },
+    "action": {
+      "type": "modifyHeaders",
+      "requestHeaders": [
+        { "header": "cookie", "operation": "remove" },
+        { "header": "user-agent", "operation": "set", "value": "Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; Googlebot/2.1; +http://www.google.com/bot.html) Chrome/142.0.0.0 Safari/537.36"}
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "condition": {
+      "urlFilter": "*://temptation.ad.nl/*"
+    },
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "transform": {
+          "queryTransform": {
+            "removeParams": [
+              "authorizationRequestId",
+              "authorizationRequestBody"
+            ]
+          }
+        }
+      }
+    }
+  }
+]

@@ -1,0 +1,27 @@
+ {
+   "manifest_version": 3,
+   "name": "Paywall Remover 9000",
+   "version": "1.0",
+   "description": "Removes paywalls from news sites",
+   "declarative_net_request": {
+     "rule_resources" : [
+       {
+         "id": "ruleset_temptation_ed",
+         "enabled": true,
+         "path": "rules/temptation-ed.json"
+       },
+       {
+         "id": "ruleset_temptation_ad",
+         "enabled": true,
+         "path": "rules/temptation-ad.json"
+       }
+     ]
+   },
+   "permissions": [
+     "declarativeNetRequest"
+   ],
+   "host_permissions": [
+     "*://*.ed.nl/*",
+     "*://*.ad.nl/*"
+   ]
+ }
