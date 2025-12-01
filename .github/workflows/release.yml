@@ -1,0 +1,27 @@
+on:
+  push:
+    tags:
+      - v*
+
+jobs:
+  release:
+    environment: Main
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Prepare extension
+        run: |
+          TAG="${{  github.ref_name }}"
+          VERSION="${TAG#v}"
+          mkdir extension
+          jq --arg version "${VERSION}" '.version |= $version' manifest.json > extension/manifest.json
+          cp -r rules extension/rules
+      - name: Release to addons.mozilla.org
+        env:
+          WEB_EXT_API_KEY: ${{ secrets.WEB_EXT_API_KEY }}
+          WEB_EXT_API_SECRET: ${{ secrets.WEB_EXT_API_SECRET }}
+        run: |
+          # Build and submit
+          cd extension
+          npx web-ext sign --channel="listed" --amo-metadata="../metadata.json" --approval-timeout=15000

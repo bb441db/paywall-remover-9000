@@ -1,27 +1,36 @@
- {
-   "manifest_version": 3,
-   "name": "Paywall Remover 9000",
-   "version": "1.0",
-   "description": "Removes paywalls from news sites",
-   "declarative_net_request": {
-     "rule_resources" : [
-       {
-         "id": "ruleset_temptation_ed",
-         "enabled": true,
-         "path": "rules/temptation-ed.json"
-       },
-       {
-         "id": "ruleset_temptation_ad",
-         "enabled": true,
-         "path": "rules/temptation-ad.json"
-       }
-     ]
-   },
-   "permissions": [
-     "declarativeNetRequest"
-   ],
-   "host_permissions": [
-     "*://*.ed.nl/*",
-     "*://*.ad.nl/*"
-   ]
- }
+{
+  "manifest_version": 3,
+  "name": "Paywall Remover 9000",
+  "version": "1.0",
+  "description": "Removes paywalls from news sites",
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_temptation_ed",
+        "enabled": true,
+        "path": "rules/temptation-ed.json"
+      },
+      {
+        "id": "ruleset_temptation_ad",
+        "enabled": true,
+        "path": "rules/temptation-ad.json"
+      }
+    ]
+  },
+  "permissions": [
+    "declarativeNetRequest"
+  ],
+  "host_permissions": [
+    "*://*.ed.nl/*",
+    "*://*.ad.nl/*"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "@6999C3CC-8E69-43D4-A36A-419B62D265BD",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+  "homepage_url": "https://github.com/bb441db/paywall-remover-9000"
+}
