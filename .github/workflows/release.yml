@@ -24,4 +24,4 @@ jobs:
         run: |
           # Build and submit
           cd extension
-          npx web-ext sign --channel="listed" --amo-metadata="../metadata.json"
+          npx web-ext sign --channel="listed" --amo-metadata="../metadata.json" --approval-timeout=15000
