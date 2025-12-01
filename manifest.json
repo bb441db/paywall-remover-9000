@@ -23,5 +23,13 @@
    "host_permissions": [
      "*://*.ed.nl/*",
      "*://*.ad.nl/*"
-   ]
+   ],
+   "browser_specific_settings": {
+     "gecko": {
+       "data_collection_permissions": {
+         "required": [],
+         "optional": []
+       }
+     }
+   }
  }
