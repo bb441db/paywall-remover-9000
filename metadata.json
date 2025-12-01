@@ -1,0 +1,11 @@
+{
+  "summary": {
+    "en-US": "Removes paywalls from certain news websites by pretending to be a Google Crawler"
+  },
+  "categories": [
+    "other"
+  ],
+  "version": {
+    "license": "MPL-2.0"
+  }
+}

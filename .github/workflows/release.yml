@@ -9,8 +9,22 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-      - name: Prepare bundle
+      - name: Prepare extension
         run: |
           TAG="${{  github.ref_name }}"
           VERSION="${TAG#v}"
-          echo "Version: $VERSION"
+          mkdir extension
+          jq '.version |= "${VERSION}"' manifest.json > extension/manifest.json
+          cp -r rules extension/rules
+      - name: Build extension
+        run: |
+          cd extension
+          npx web-ext build
+      - name: Release to addons.mozilla.org
+        env:
+          WEB_EXT_API_KEY: ${{ secrets.WEB_EXT_API_KEY }}
+          WEB_EXT_API_SECRET: ${{ secrets.WEB_EXT_API_SECRET }}
+        run: |
+          # Build and submit
+          cd extension
+          npx web-ext sign --channel="listed" --amo-metadata="../metadata.json"
