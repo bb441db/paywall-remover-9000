@@ -15,7 +15,7 @@ jobs:
           TAG="${{  github.ref_name }}"
           VERSION="${TAG#v}"
           mkdir extension
-          jq '.version |= "${VERSION}"' manifest.json > extension/manifest.json
+          jq --arg version "${VERSION}" '.version |= $version' manifest.json > extension/manifest.json
           cp -r rules extension/rules
       - name: Release to addons.mozilla.org
         env:
