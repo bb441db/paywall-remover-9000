@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-      - name: Testing
+      - name: Prepare bundle
         run: |
-          echo "Tag name from github.ref_name: ${{  github.ref_name }}"
+          TAG="${{  github.ref_name }}"
+          VERSION="${TAG#v}"
+          echo "Version: $VERSION"
