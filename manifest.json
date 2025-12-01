@@ -28,8 +28,7 @@
     "gecko": {
       "id": "@6999C3CC-8E69-43D4-A36A-419B62D265BD",
       "data_collection_permissions": {
-        "required": [],
-        "optional": []
+        "required": ["none"]
       }
     }
   },
