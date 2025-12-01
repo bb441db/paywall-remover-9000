@@ -26,10 +26,12 @@
   ],
   "browser_specific_settings": {
     "gecko": {
+      "id": "@6999C3CC-8E69-43D4-A36A-419B62D265BD",
       "data_collection_permissions": {
         "required": [],
         "optional": []
       }
     }
-  }
+  },
+  "homepage_url": "https://github.com/bb441db/paywall-remover-9000"
 }
